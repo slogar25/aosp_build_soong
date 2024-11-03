@@ -131,6 +131,18 @@ product_config {
     visibility: ["//device/google/cuttlefish/system_image"],
 }
 
+filegroup {
+    name: "buildinfo.prop",
+    srcs: [
+        ":system-build.prop",
+    ],
+    // Currently, only microdroid and cf system image can refer to buildinfo.prop
+    visibility: [
+        "//device/google/cuttlefish/system_image",
+        "//packages/modules/Virtualization/microdroid",
+    ],
+}
+
 build_prop {
     name: "system-build.prop",
     stem: "build.prop",
